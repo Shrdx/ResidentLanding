@@ -1,0 +1,217 @@
+.section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(to bottom, rgba(18, 18, 18, 1) 0%, rgba(18, 18, 18, 0.8) 50%, rgba(18, 18, 18, 1) 100%), url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2000&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.brackets {
+  font-size: 5rem;
+  font-weight: 200;
+  color: var(--text-muted);
+}
+
+.titleWrapper {
+  position: relative;
+  text-align: center;
+}
+
+.orbPos {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+}
+
+.midRow {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4rem;
+  margin-top: 4rem;
+  margin-bottom: 8rem;
+}
+
+.miniText {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.5;
+  color: var(--text-dark);
+  margin-top: 2rem;
+}
+
+.midImageWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.midImage {
+  width: 250px;
+  height: auto;
+  border-radius: 1.5rem;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.midImage:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.scrollExplore {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.bottomGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+.largeImage {
+  width: 100%;
+  height: auto;
+  border-radius: 1.5rem;
+  object-fit: cover;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.largeImage:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.bottomRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.description {
+  font-size: 2.2rem;
+  font-weight: 300;
+  line-height: 1.2;
+  position: relative;
+}
+
+.glowText {
+  color: var(--text-dark);
+  position: relative;
+  display: inline-block;
+}
+
+.orbInline {
+  top: 50%;
+  left: -20px;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+}
+
+.mutedText {
+  color: var(--text-muted);
+}
+
+.brandRow {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: 4rem 0;
+  position: relative;
+}
+
+.aboutTag {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  align-self: flex-start;
+  margin-top: 1rem;
+}
+
+.brandTitle {
+  flex: 1;
+}
+
+.videoBtnWrapper {
+  position: relative;
+}
+
+.videoBtnAura {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+  border-radius: 50%;
+  z-index: 0;
+  opacity: 0.5;
+}
+
+.videoBtnWrapper .circle-btn {
+  z-index: 1;
+  background-color: var(--bg-dark);
+}
+
+.bottomTextRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.fineText {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.smallImage {
+  width: 150px;
+  height: auto;
+  border-radius: 1rem;
+  padding: 0.3rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.smallImage:hover {
+  transform: translateY(-5px) scale(1.05);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 1024px) {
+  .bottomGrid {
+    grid-template-columns: 1fr;
+  }
+}

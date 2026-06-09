@@ -1,0 +1,177 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg-light);
+}
+
+.header {
+  margin-bottom: 4rem;
+}
+
+.tagWrapper {
+  margin-bottom: 1rem;
+}
+
+.featureTag {
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.title {
+  font-size: clamp(3rem, 5vw, 5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--text-light);
+}
+
+.contentWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  align-items: stretch;
+}
+
+.leftPanel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.description {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 3rem;
+  max-width: 95%;
+}
+
+.distancesList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.distanceItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+}
+
+.distValue {
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--text-light);
+  letter-spacing: -0.02em;
+}
+
+.distLabel {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+.addressBox {
+  padding-top: 1rem;
+}
+
+.addressTitle {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.8rem;
+}
+
+.addressText {
+  font-size: 1rem;
+  color: var(--text-light);
+  line-height: 1.6;
+  font-weight: 300;
+  margin-bottom: 1.2rem;
+}
+
+.directionLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 400;
+  transition: opacity 0.3s ease;
+  border-bottom: 1px solid var(--text-light);
+  padding-bottom: 2px;
+}
+
+.directionLink:hover {
+  opacity: 0.6;
+}
+
+.arrow {
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.directionLink:hover .arrow {
+  transform: translate(2px, -2px);
+}
+
+.rightPanel {
+  width: 100%;
+}
+
+.mapContainer {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+}
+
+.mapIframe {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  filter: grayscale(0.3) contrast(1.05);
+  transition: filter 0.5s ease;
+}
+
+.mapIframe:hover {
+  filter: grayscale(0) contrast(1);
+}
+
+@media (max-width: 992px) {
+  .contentWrapper {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .mapContainer {
+    min-height: 400px;
+  }
+
+  .mapIframe {
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .distancesList {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .mapContainer {
+    min-height: 300px;
+  }
+
+  .mapIframe {
+    min-height: 300px;
+  }
+}

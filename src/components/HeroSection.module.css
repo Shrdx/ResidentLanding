@@ -1,0 +1,234 @@
+.heroSection {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+  background-image: linear-gradient(to bottom, rgba(18, 18, 18, 0.5) 0%, rgba(18, 18, 18, 1) 100%), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2000&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+
+.mainContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+}
+
+.titleWrapper {
+  margin-top: 1rem;
+}
+
+.title {
+  text-align: left;
+  margin-left: -0.5%;
+  mix-blend-mode: exclusion;
+}
+
+.titleMeta {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  padding-left: 0.3rem;
+}
+
+.metaDot {
+  opacity: 0.4;
+}
+
+.titleLine {
+  display: block;
+}
+
+.charLight {
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+.charBold {
+  font-weight: 800;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex: 1;
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.subtitle {
+  font-size: 3.5rem;
+  font-weight: 300;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+}
+
+.description {
+  font-size: 1rem;
+  color: var(--text-muted);
+  max-width: 300px;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.viewBtn {
+  background-color: var(--text-dark);
+  color: var(--bg-dark);
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  width: fit-content;
+  transition: opacity 0.3s ease;
+}
+
+.viewBtn:hover {
+  opacity: 0.8;
+}
+
+.imageColumn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+}
+
+.heroImage {
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+  object-fit: cover;
+  border-radius: 2rem;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: right;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.sideText {
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 2rem;
+  z-index: 10;
+}
+
+.footerLeft {
+  font-size: 0.9rem;
+}
+
+.muted {
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+.scrollIndicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+.footerRight {
+  display: flex;
+  align-items: flex-end;
+  gap: 2rem;
+}
+
+.progressLabel {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.progressBarWrapper {
+  width: 250px;
+}
+
+.progressHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.progressBar {
+  width: 100%;
+  height: 2px;
+  background-color: var(--border-color);
+  position: relative;
+}
+
+.progressFill {
+  height: 100%;
+  background-color: var(--text-dark);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@media (max-width: 1024px) {
+  .heroSection {
+    padding: 2rem;
+  }
+  .contentGrid {
+    grid-template-columns: 1fr;
+  }
+  .rightColumn {
+    display: none;
+  }
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  .footerRight {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

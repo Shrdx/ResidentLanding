@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg-dark: #121212;
+  --bg-light: #f9f9f9;
+  --text-dark: #ffffff;
+  --text-light: #111111;
+  --text-muted: #888888;
+  --text-muted-light: #666666;
+  --accent-orange: #ff9933;
+  --accent-orange-glow: rgba(255, 153, 51, 0.6);
+  --border-color: #333333;
+  --border-color-light: #e0e0e0;
+
+  --font-main: 'Outfit', sans-serif;
+  --font-display: 'Syne', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: var(--font-main);
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+  scroll-behavior: smooth;
+  /* Smooth scrolling is handled by GSAP or just native depending on implementation */
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-main);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Utilities */
+.container {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
+
+/* Glowing Orb */
+.glow-orb {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-color: var(--accent-orange);
+  border-radius: 50%;
+  filter: blur(40px);
+  z-index: -1;
+}
+
+/* Typography Classes */
+.h1-mega {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 12vw, 15rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.85;
+  text-transform: uppercase;
+}
+
+.h2-large {
+  font-size: clamp(3rem, 6vw, 6rem);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.h3-medium {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+}
+
+.text-body {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.text-body-light {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--text-muted-light);
+}
+
+/* Section Spacing */
+.section-padding {
+  padding: 8rem 0;
+}
+
+.section-dark {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+.section-light {
+  background-color: var(--bg-light);
+  color: var(--text-light);
+}
+
+/* Circular Button */
+.circle-btn {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.circle-btn:hover {
+  background-color: var(--text-dark);
+  color: var(--bg-dark);
+}
+
+.circle-btn-dark {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+  border: none;
+}
+
+.circle-btn-dark:hover {
+  transform: scale(1.05);
+}

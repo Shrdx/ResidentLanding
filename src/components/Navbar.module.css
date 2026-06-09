@@ -1,0 +1,132 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1.2rem 0;
+  transition: background-color 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease, padding 0.4s ease;
+}
+
+.navbar.scrolled {
+  background-color: rgba(18, 18, 18, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
+  padding: 0.8rem 0;
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4rem;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: var(--text-dark);
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.navbar.scrolled .logo {
+  opacity: 1;
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  margin-left: auto;
+}
+
+.nav a {
+  text-transform: uppercase;
+  position: relative;
+  color: var(--text-dark);
+  transition: opacity 0.3s ease;
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--text-dark);
+  transition: width 0.3s ease;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+.nav a:hover {
+  opacity: 0.8;
+}
+
+.consultationBtn {
+  border-bottom: 1px solid var(--text-dark) !important;
+  padding-bottom: 0.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.consultationBtn::after {
+  display: none !important;
+}
+
+.arrow {
+  font-size: 1.2rem;
+}
+
+.heartBtn {
+  font-size: 1.5rem;
+  color: var(--text-dark);
+  transition: transform 0.3s ease;
+}
+
+.heartBtn:hover {
+  transform: scale(1.15);
+}
+
+@media (max-width: 1024px) {
+  .inner {
+    padding: 0 2rem;
+  }
+
+  .nav {
+    gap: 1.2rem;
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .inner {
+    padding: 0 1rem;
+  }
+
+  .nav a:not(.consultationBtn) {
+    display: none;
+  }
+
+  .logo {
+    opacity: 1;
+  }
+
+  .heartBtn {
+    display: none;
+  }
+}
