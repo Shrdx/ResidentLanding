@@ -1,10 +1,25 @@
 'use client';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import styles from './HeroSection.module.css';
 
+const BACKGROUND_IMAGES = [
+  '/image.png',
+  '/image2.png',
+  '/slide-5-compressed.webp',
+  '/the-amaryllis-banner-01.webp'
+];
+
 export default function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [currentBg, setCurrentBg] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentBg((prev) => (prev + 1) % BACKGROUND_IMAGES.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -26,79 +41,70 @@ export default function HeroSection() {
     return () => ctx.revert();
   }, []);
 
+  const nextSlide = () => {
+    setCurrentBg((prev) => (prev + 1) % BACKGROUND_IMAGES.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentBg((prev) => (prev - 1 + BACKGROUND_IMAGES.length) % BACKGROUND_IMAGES.length);
+  };
+
   return (
     <section className={styles.heroSection} ref={containerRef}>
+      {BACKGROUND_IMAGES.map((img, index) => (
+        <div
+          key={img}
+          className={`${styles.bgImage} ${index === currentBg ? styles.activeBg : ''}`}
+          style={{ backgroundImage: `url(${img})` }}
+        />
+      ))}
+      <div className={styles.bgOverlay} />
 
       <div className={styles.mainContent}>
         <div className={styles.titleWrapper}>
           <div className={`${styles.titleMeta} stagger-text`}>
             <span>RESIDENCE</span>
             <span className={styles.metaDot}>·</span>
-            <span>SAN CASSIANO</span>
-            <span className={styles.metaDot}>·</span>
-            <span>/ 2026</span>
+            <span>CENTRAL DELHI</span>
           </div>
-          <h1 className={`${styles.title} h1-mega stagger-text`}>
+          <h1 className={`${styles.title} stagger-text`}>
             <span className={styles.titleLine}>
-              <span className={styles.charBold}>H</span>
-              <span className={styles.charBold}>O</span>
-              <span className={styles.charBold}>RIZON</span>
+              <span className={styles.charBold}>THE</span>
             </span>
-            <span className={styles.titleLine}>GROVE</span>
+            <span className={styles.titleLine}>AMARYLLIS</span>
           </h1>
         </div>
 
         <div className={styles.contentGrid}>
           <div className={styles.leftColumn}>
             <div className="stagger-text">
-              <h2 className={styles.subtitle}>welcome to<br />horizon grove</h2>
+              <h2 className={styles.subtitle}>welcome to<br />the amaryllis</h2>
               <p className={styles.description}>
                 A unique space where modern design meets unparalleled convenience, offering a lifestyle beyond expectations.
               </p>
-              <button className={styles.viewBtn}>
-                View Apartments &gt;
-              </button>
+              <div className={styles.btnGroup}>
+                <button className={`${styles.viewBtn} ${styles.primaryBtn}`}>
+                  Book a site visit
+                </button>
+              </div>
             </div>
           </div>
-          <div className={`${styles.imageColumn} fade-in`}>
-            <img
-              src="/images/hero-building.webp"
-              alt="Horizon Grove Building"
-              className={styles.heroImage}
-            />
-          </div>
-          <div className={`${styles.rightColumn} fade-in`}>
-            <div className={styles.sideText}>
-              SPACE THAT<br />INSPIRES
-            </div>
-            <div className={styles.sideText}>
-              A HOME DESIGNED FOR<br />THOSE WHO SEEK MORE
-            </div>
-          </div>
+          {/* Right column "SPACE THAT INSPIRES" removed as requested */}
         </div>
       </div>
 
-      <footer className={`${styles.footer} fade-in`}>
-        <div className={styles.footerLeft}>
-          <p>From $6570/M2</p>
-          <p className={styles.muted}>San Cassiano, Northern Italy</p>
-        </div>
-        <div className={styles.scrollIndicator}>
-          <span className={styles.scrollArrows}>⌄⌄</span>
-        </div>
-        <div className={styles.footerRight}>
-          <p className={styles.progressLabel}>CONSTRUCTION<br />PROGRESS</p>
-          <div className={styles.progressBarWrapper}>
-            <div className={styles.progressHeader}>
-              <span>Completed</span>
-              <span>65%</span>
-            </div>
-            <div className={styles.progressBar}>
-              <div className={styles.progressFill} style={{ width: '65%' }}></div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <div className={styles.carouselControls}>
+        <button className={styles.controlBtn} onClick={prevSlide} aria-label="Previous image">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button className={styles.controlBtn} onClick={nextSlide} aria-label="Next image">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
     </section>
   );
 }

@@ -31,7 +31,7 @@ export default function FinalFooter() {
       <div className="container">
 
         <div className={`${styles.bigTitleWrapper} final-fade`}>
-          <h1 className={styles.bigTitle}>HORIZON</h1>
+          <h1 className={styles.bigTitle}>THE AMARYLLIS</h1>
         </div>
 
         <div className={styles.divider}></div>
@@ -55,25 +55,29 @@ export default function FinalFooter() {
             <h3 className={styles.columnHeader}>Menu</h3>
             <div className={styles.menuGrid}>
               <ul className={styles.menuList}>
-                <li><a href="#about">About Us</a></li>
+                <li><a href="#apartments">Apartment</a></li>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#infrastructure">Infrastructure</a></li>
-                <li><a href="#apartments">Apartments</a></li>
               </ul>
             </div>
           </div>
 
           <div className={`${styles.addressColumn} final-fade`}>
             <h3 className={styles.columnHeader}>Visit Us</h3>
-            <p className={styles.textBody}>
-              Via Alessandro Volta 25,<br />
-              Como, Lombardy, Italy
-            </p>
+            <a 
+              href="https://share.google/4o5I56B9sGhvVfrqc" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className={`${styles.textBody} ${styles.addressLink}`}
+            >
+              1, New Rohtak Rd, Block 67,<br />
+              Karol Bagh, New Delhi, 110005
+            </a>
           </div>
 
           <div className={`${styles.contactColumn} final-fade`}>
             <h3 className={styles.columnHeader}>Our Contacts</h3>
-            <p className={styles.textBody}>Info@horizongrove.com</p>
+            <p className={styles.textBody}>info@theamaryllis.in</p>
             <p className={styles.textBody}>+91XXXXXXXXXX</p>
             <div className={styles.socialIcons}>
               <span className={styles.icon}>f</span>
@@ -85,7 +89,8 @@ export default function FinalFooter() {
         </div>
 
         <div className={`${styles.copyrightRow} final-fade`}>
-          <p>© 2026 Horizon Grove. All Rights Reserved.</p>
+          <p>Copyright © www.amaryllisdelhi.com 2014 - 2026 | All Rights Reserved | Emaar Serenity Hills | DLF One Midtown | Disclaimer</p>
+          <p>This is not the official website. And it belongs to Authorized Channel Partner of Unity Group.</p>
         </div>
 
       </div>

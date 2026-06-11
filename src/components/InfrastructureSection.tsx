@@ -9,43 +9,35 @@ gsap.registerPlugin(ScrollTrigger);
 const infrastructureData = [
   {
     id: 1,
-    title: 'ECO-FRIENDLY\nPRODUCTS STORE',
-    distance: '4 m 🚶',
-    desc: 'A carefully curated selection of fresh, organic, and\nlocally sourced goods — everything you need for\nhealthy living, just a few steps from your home.',
-    largeImg: '/images/store-large.webp',
-    smallImg: '/images/store-small.webp'
+    title: 'PRIVATE CLUBHOUSE\nAT YOUR DOORSTEP',
+    distance: 'Exclusive',
+    desc: 'Enjoy effortless access to the residents\' clubhouse located directly opposite Tower D, featuring premium recreational and wellness facilities just a short walk away.',
+    largeImg: '/club.jpg',
+    smallImg: '/club2.webp'
   },
   {
     id: 2,
-    title: 'PANORAMIC\nFITNESS CENTER',
-    distance: '12 m 🚶',
-    desc: 'A state-of-the-art gym with floor-to-ceiling windows,\noffering modern equipment and inspiring views of\nthe mountains for your daily workout.',
+    title: 'BREAKTAKING\n25TH FLOOR VISTAS',
+    distance: 'Elevated',
+    desc: 'Experience panoramic views of the city skyline, lush landscaped gardens, and vibrant surroundings from the comfort of your high-rise residence.',
+    largeImg: '/25th-floor.webp',
+    smallImg: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=600&auto=format&fit=crop'
+  },
+  {
+    id: 3,
+    title: 'FITNESS AND WELLNESS\nWITHIN REACH',
+    distance: 'Wellness',
+    desc: 'Stay active with easy access to the fitness center, swimming pool, indoor sports facilities, and wellness spaces located moments from your home.',
     largeImg: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1600&auto=format&fit=crop',
     smallImg: 'https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=600&auto=format&fit=crop'
   },
   {
-    id: 3,
-    title: 'WELLNESS &\nSPA RETREAT',
-    distance: '15 m 🚶',
-    desc: 'Relax and rejuvenate in our premium spa facility.\nFeatures include a heated indoor pool, sauna, steam\nroom, and private massage therapy rooms.',
-    largeImg: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=1600&auto=format&fit=crop',
-    smallImg: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?q=80&w=600&auto=format&fit=crop'
-  },
-  {
     id: 4,
-    title: 'ALPINE\nRESTAURANT',
-    distance: '8 m 🚶',
-    desc: 'Enjoy world-class dining and locally sourced coffee\nwithout leaving the grounds. Perfect for a quiet\nmorning or an elegant evening dinner.',
-    largeImg: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1600&auto=format&fit=crop',
-    smallImg: 'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=600&auto=format&fit=crop'
-  },
-  {
-    id: 5,
-    title: 'PRIVATE\nNATURE TRAILS',
-    distance: '2 m 🚶',
-    desc: 'Step directly from your home onto meticulously\nmaintained private trails that connect seamlessly\nto the surrounding alpine nature reserves.',
-    largeImg: 'https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1600&auto=format&fit=crop',
-    smallImg: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600&auto=format&fit=crop'
+    title: 'LUXURY LEISURE\nEVERY DAY',
+    distance: 'Resort-Style',
+    desc: 'From social lounges and entertainment areas to outdoor relaxation spaces, enjoy a resort-inspired lifestyle without leaving the community.',
+    largeImg: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?q=80&w=1600&auto=format&fit=crop',
+    smallImg: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=600&auto=format&fit=crop'
   }
 ];
 
@@ -159,11 +151,6 @@ export default function InfrastructureSection() {
                 
                 <div className={styles.bottomLeftAction}>
                   <img src={activeData.smallImg} alt={activeData.title.replace('\n', ' ')} className={styles.smallImage} />
-                  <button className={`circle-btn circle-btn-dark ${styles.mapBtn}`}>
-                    <span>↗</span>
-                    <span>View</span>
-                    <span>On The Map</span>
-                  </button>
                 </div>
               </div>
             </div>

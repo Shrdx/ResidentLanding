@@ -55,7 +55,7 @@ export default function FooterSection() {
               <input type="email" placeholder="YOUR EMAIL" className={styles.inputField} />
             </div>
             <div className={`${styles.inputGroup} footer-fade`}>
-              <input type="tel" placeholder="+380 (00) 000 00 00" className={styles.inputField} />
+              <input type="tel" placeholder="+91 XXXXX XXXXX" className={styles.inputField} />
             </div>
 
             <div className={`${styles.checkboxGroup} footer-fade`}>

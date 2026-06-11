@@ -1,125 +1,151 @@
 'use client';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './PerksSection.module.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const FEATURES = [
+  {
+    id: '01',
+    title: 'DOUBLE HEIGHT ENTRANCE',
+    description: `There is nothing more dramatic than walking into a house with soaring ceilings, huge windows, and breathtaking vistas. At The Amaryllis, enter through a double-height entrance that opens up into a room that's flooded with wonderful natural light thanks to the huge windows that are much higher than the standard nine-foot.`,
+    image: '/images/corridor.webp',
+  },
+  {
+    id: '02',
+    title: 'HIGH SPEED ELEVATORS',
+    description: `The Amaryllis transforms how you travel in this opulent residential development, thanks to its cutting-edge, high-speed elevators. It uses a web-based monitoring system that ensures fewer stops & less crowding, making it peaceful to get to your apartment.`,
+    image: '/images/mid-building.webp',
+  },
+  {
+    id: '03',
+    title: 'AIR CONDITIONING SYSTEM',
+    description: `The Amaryllis' HVAC system maintains a constant temperature throughout your apartment. This sophisticated air conditioning system serves dual function of dispersing heat and cool air during the winter and summer, respectively. No matter the season, always stay cozy at The Amaryllis.`,
+    image: '/images/store-small.webp',
+  },
+  {
+    id: '04',
+    title: 'EARTHQUAKE RESISTANT',
+    description: `In response to increased seismic awareness across the globe, The Amaryllis has made significant efforts to reduce the loss that may happen during an earthquake. This property guarantees style, comfort, and utmost safety beginning with the connection of structural elements, reinforced masonry, building spacing, and doing everything as per government regulations.`,
+    image: '/images/carousel-building.webp',
+  },
+];
+
 export default function PerksSection() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const [activeIdx, setActiveIdx] = useState(0);
 
+  // Entrance animation
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from('.perk-item', {
+      gsap.from('.perks-header', {
         scrollTrigger: {
           trigger: containerRef.current,
-          start: 'top 60%',
+          start: 'top 75%',
         },
-        x: -50,
+        y: 30,
         opacity: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: 'power2.out'
+        duration: 0.9,
+        ease: 'power2.out',
       });
-
-      gsap.to('.perk-orb', {
-        scale: 1.2,
-        opacity: 0.6,
-        duration: 3,
-        yoyo: true,
-        repeat: -1,
-        ease: 'sine.inOut'
+      gsap.from('.perks-panel', {
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: 'top 65%',
+        },
+        y: 40,
+        opacity: 0,
+        duration: 1,
+        delay: 0.15,
+        ease: 'power2.out',
       });
     }, containerRef);
     return () => ctx.revert();
   }, []);
 
+  // Animate panel swap
+  const handleTabClick = (i: number) => {
+    if (i === activeIdx) return;
+    const el = panelRef.current;
+    if (!el) { setActiveIdx(i); return; }
+    gsap.to(el, {
+      opacity: 0,
+      y: 12,
+      duration: 0.22,
+      ease: 'power2.in',
+      onComplete: () => {
+        setActiveIdx(i);
+        gsap.fromTo(
+          el,
+          { opacity: 0, y: -12 },
+          { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' }
+        );
+      },
+    });
+  };
+
+  const feature = FEATURES[activeIdx];
+
   return (
-    <section className={`section-light section-padding ${styles.section}`} ref={containerRef}>
+    <section
+      className={`section-light section-padding ${styles.section}`}
+      ref={containerRef}
+      id="features"
+    >
       <div className="container">
 
-        <div className={styles.header}>
-          <p className={styles.tagline}>
+        {/* ─── Header ─── */}
+        <div className={`${styles.header} perks-header`}>
+          <div className={styles.headerLeft}>
+            <span className={styles.featureTag}>[ FEATURES ]</span>
+            <h2 className={styles.title}>
+              Apartment Features<br />
+              <span className={styles.titleThin}>&amp; Specifications</span>
+            </h2>
+          </div>
+          <p className={styles.headerRight}>
             SMART, SECURE, AND<br />
-            SUSTAINABLE—DESIGNED<br />
+            SUSTAINABLE — DESIGNED<br />
             TO FEEL LIKE HOME.
           </p>
-          <div className={styles.titleWrapper}>
-            <div className={styles.featureTag}>[ FEATURES ]</div>
-            <div className={styles.bracketsWrapper}>
-              <span className={styles.brackets}>[</span>
-              <h2 className={styles.title}>
-                THE PERKS<br />
-                OF LIVING <span className={styles.glowText}><span className={`glow-orb perk-orb ${styles.orbInline}`}></span>in harmony<br /><span className={styles.thinText}>with nature</span></span>
-              </h2>
-              <span className={styles.brackets}>]</span>
-            </div>
-          </div>
         </div>
 
-        <div className={styles.contentGrid}>
+        {/* ─── Tab Nav ─── */}
+        <div className={styles.tabNav}>
+          {FEATURES.map((f, i) => (
+            <button
+              key={f.id}
+              className={`${styles.tabItem} ${i === activeIdx ? styles.tabActive : ''}`}
+              onClick={() => handleTabClick(i)}
+            >
+              <span className={styles.tabIndex}>{f.id}</span>
+              <span className={styles.tabLabel}>{f.title}</span>
+            </button>
+          ))}
+        </div>
 
-          <div className={styles.leftList}>
-            <div className={`${styles.listItem} perk-item`}>
-              <span className={styles.listIndex}>[ 01 ]</span>
-              <h3 className={styles.listTitle}>VARIETY OF LAYOUTS</h3>
-            </div>
-            <div className={`${styles.listItem} perk-item`}>
-              <span className={styles.listIndex}>[ 02 ]</span>
-              <h3 className={styles.listTitle}>STYLISH INTERIOR DESIGN</h3>
-            </div>
-            <div className={`${styles.listItem} perk-item`}>
-              <span className={styles.listIndex}>[ 03 ]</span>
-              <h3 className={styles.listTitle}>BALANCE & SERENITY</h3>
-            </div>
-            <div className={`${styles.listItem} perk-item`}>
-              <span className={styles.listIndex}>[ 04 ]</span>
-              <h3 className={styles.listTitle}>FLEXIBLE PURCHASE TERMS</h3>
-            </div>
+        {/* ─── Single Feature Panel ─── */}
+        <div className={`${styles.featurePanel} perks-panel`} ref={panelRef}>
+          {/* Text */}
+          <div className={styles.featureText}>
+            <div className={styles.featureNum}>{feature.id}</div>
+            <h3 className={styles.featureTitle}>{feature.title}</h3>
+            <p className={styles.featureDesc}>{feature.description}</p>
           </div>
 
-          <div className={styles.centerImageWrapper}>
-            <div className={styles.circleImageContainer}>
-              <img src="/images/house-circle.webp" alt="House Circle" className={styles.circleImage} />
-            </div>
+          {/* Image */}
+          <div className={styles.featureImageWrap}>
+            <img
+              src={feature.image}
+              alt={feature.title}
+              className={styles.featureImage}
+              key={feature.id}
+            />
+            <div className={styles.featureImageOverlay} />
           </div>
-
-          <div className={styles.rightDescriptions}>
-            <div className={`${styles.descItem} perk-item`}>
-              <p className={styles.descText}>
-                Individual payment plans, clear agreements,<br />
-                and full legal support make the buying<br />
-                process seamless and stress-free
-              </p>
-              <button className={styles.arrowCircleBtn}>↗</button>
-            </div>
-            <div className={`${styles.descItem} perk-item`}>
-              <p className={styles.descText}>
-                Contemporary design, high-quality finishes,<br />
-                and customization options make your home<br />
-                a true reflection of you.
-              </p>
-              <button className={styles.arrowCircleBtn}>↗</button>
-            </div>
-            <div className={`${styles.descItem} perk-item`}>
-              <p className={styles.descText}>
-                A calm atmosphere ideal for physical and<br />
-                mental well-being, with space for outdoor<br />
-                activities, relaxation, and slow living.
-              </p>
-              <button className={styles.arrowCircleBtn}>↗</button>
-            </div>
-            <div className={`${styles.descItem} perk-item`}>
-              <p className={styles.descText}>
-                Personalized installment plans, transparent<br />
-                agreements, and comprehensive legal support<br />
-                ensure a seamless and confident experience
-              </p>
-              <button className={styles.arrowCircleBtn}>↗</button>
-            </div>
-          </div>
-
         </div>
 
       </div>

@@ -16,12 +16,13 @@ export default function Navbar() {
   return (
     <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
       <div className={styles.inner}>
-        <a href="#" className={styles.logo}>HG</a>
+        <a href="#" className={styles.logo}>
+          <img src="/logo-golden.png" alt="The Amaryllis Logo" className={styles.logoImg} />
+        </a>
         <nav className={styles.nav}>
-          <a href="#about">ABOUT</a>
+          <a href="#apartments">APARTMENT</a>
           <a href="#features">FEATURES</a>
           <a href="#infrastructure">INFRASTRUCTURE</a>
-          <a href="#apartments">APARTMENTS</a>
           <a href="#offers" className={styles.consultationBtn}>
             Get A Consultation <span className={styles.arrow}>↗</span>
           </a>

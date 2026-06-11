@@ -1,5 +1,4 @@
 import HeroSection from '@/components/HeroSection';
-import SpaceInspiresSection from '@/components/SpaceInspiresSection';
 import ApartmentsSection from '@/components/ApartmentsSection';
 import PerksSection from '@/components/PerksSection';
 import InfrastructureSection from '@/components/InfrastructureSection';
@@ -16,14 +15,11 @@ export default function Home() {
       <div>
         <HeroSection />
       </div>
-      <div id="about">
-        <SpaceInspiresSection />
+      <div id="apartments">
+        <ApartmentsSection />
       </div>
       <div id="features">
         <PerksSection />
-      </div>
-      <div id="apartments">
-        <ApartmentsSection />
       </div>
       <div id="infrastructure">
         <InfrastructureSection />

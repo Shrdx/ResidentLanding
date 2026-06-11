@@ -5,12 +5,38 @@
   padding: 5rem 4rem 2rem;
   position: relative;
   overflow: hidden;
-  background-image: linear-gradient(to bottom, rgba(18, 18, 18, 0.5) 0%, rgba(18, 18, 18, 1) 100%), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2000&auto=format&fit=crop');
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
 }
 
+.bgImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  z-index: 1;
+}
+
+.activeBg {
+  opacity: 1;
+}
+
+.bgOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(to right,  rgba(10, 10, 10, 0.82) 0%, rgba(10, 10, 10, 0.35) 55%, rgba(10, 10, 10, 0.05) 100%),
+    linear-gradient(to top,    rgba(10, 10, 10, 0.85) 0%, rgba(10, 10, 10, 0.40) 40%, transparent 70%),
+    linear-gradient(to bottom, rgba(10, 10, 10, 0.45) 0%, transparent 30%);
+  z-index: 1;
+}
 
 .mainContent {
   flex: 1;
@@ -21,13 +47,18 @@
 }
 
 .titleWrapper {
-  margin-top: 1rem;
+  margin-top: 5rem;
 }
 
 .title {
   text-align: left;
   margin-left: -0.5%;
-  mix-blend-mode: exclusion;
+  font-family: var(--font-display, 'Syne', sans-serif);
+  font-size: clamp(3rem, 7vw, 7.5rem); /* Decreased size so AMARYLLIS fits */
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.85;
+  text-transform: uppercase;
 }
 
 .titleMeta {
@@ -38,9 +69,10 @@
   font-weight: 400;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.85);
   margin-bottom: 0.5rem;
   padding-left: 0.3rem;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
 }
 
 .metaDot {
@@ -62,9 +94,9 @@
 
 .contentGrid {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr; /* Changed to 1fr because right column is removed */
   gap: 2rem;
-  margin-top: 2rem;
+  margin-top: 4rem;
   flex: 1;
 }
 
@@ -79,156 +111,86 @@
   font-weight: 300;
   line-height: 1;
   margin-bottom: 1.5rem;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6), 0 1px 4px rgba(0, 0, 0, 0.9);
 }
 
 .description {
   font-size: 1rem;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.92);
   max-width: 300px;
   line-height: 1.6;
   margin-bottom: 2rem;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8), 0 1px 3px rgba(0, 0, 0, 1);
+}
+
+.btnGroup {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .viewBtn {
-  background-color: var(--text-dark);
-  color: var(--bg-dark);
+  background-color: transparent;
+  color: #fff;
   padding: 1rem 2rem;
   border-radius: 2rem;
   font-size: 1rem;
   font-weight: 500;
   width: fit-content;
-  transition: opacity 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .viewBtn:hover {
-  opacity: 0.8;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
-.imageColumn {
-  position: relative;
+.primaryBtn {
+  background-color: #a01830;
+  border-color: #a01830;
+}
+
+.primaryBtn:hover {
+  background-color: #8a1328;
+  border-color: #8a1328;
+}
+
+/* Removed rightColumn css since the section was removed */
+
+.carouselControls {
+  position: absolute;
+  bottom: 4rem;
+  right: 4rem;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: -1;
-}
-
-.heroImage {
-  width: 100%;
-  height: auto;
-  max-height: 70vh;
-  object-fit: cover;
-  border-radius: 2rem;
-  padding: 0.5rem;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));
-}
-
-.rightColumn {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  text-align: right;
-  font-size: 0.8rem;
-  letter-spacing: 0.05em;
-  color: var(--text-muted);
-}
-
-.sideText {
-  text-transform: uppercase;
-  margin-bottom: 2rem;
-}
-
-.footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding-top: 2rem;
+  gap: 1rem;
   z-index: 10;
 }
 
-.footerLeft {
-  font-size: 0.9rem;
-}
-
-.muted {
-  color: var(--text-muted);
-  margin-top: 0.5rem;
-}
-
-.scrollIndicator {
+.controlBtn {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: #a01830;
+  color: white;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: var(--text-muted);
-  font-size: 1.5rem;
-  animation: bounce 2s infinite;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(10px); }
-}
-
-.footerRight {
-  display: flex;
-  align-items: flex-end;
-  gap: 2rem;
-}
-
-.progressLabel {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.progressBarWrapper {
-  width: 250px;
-}
-
-.progressHeader {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-  margin-bottom: 0.5rem;
-}
-
-.progressBar {
-  width: 100%;
-  height: 2px;
-  background-color: var(--border-color);
-  position: relative;
-}
-
-.progressFill {
-  height: 100%;
-  background-color: var(--text-dark);
-  position: absolute;
-  top: 0;
-  left: 0;
+.controlBtn:hover {
+  background-color: #8a1328;
 }
 
 @media (max-width: 1024px) {
   .heroSection {
     padding: 2rem;
   }
-  .contentGrid {
-    grid-template-columns: 1fr;
-  }
-  .rightColumn {
-    display: none;
-  }
-  .footer {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2rem;
-  }
-  .footerRight {
-    width: 100%;
-    justify-content: space-between;
+  .carouselControls {
+    bottom: 2rem;
+    right: 2rem;
   }
 }

@@ -73,7 +73,7 @@ export default function SpaceInspiresSection() {
             <div className={styles.brandRow}>
               <div className={styles.aboutTag}>[ ABOUT US ]</div>
               <h2 className={`${styles.brandTitle} h2-large`}>
-                HORIZON<br/>GROVE
+                THE<br/>AMARYLLIS
               </h2>
               <div className={styles.videoBtnWrapper}>
                 <div className={styles.videoBtnAura}></div>

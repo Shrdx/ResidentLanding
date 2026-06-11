@@ -6,39 +6,23 @@ import styles from './ApartmentsSection.module.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const apartmentData = [
-  {
-    id: '1-bed',
-    title: '1-Bedroom Suite',
-    description: 'Perfect for young professionals or couples, offering a smart layout with abundant natural light and premium finishes.',
-    sqft: '650 - 750',
-    rooms: 3,
-    baths: 1,
-    image: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=1600&auto=format&fit=crop',
-  },
-  {
-    id: '2-bed',
-    title: '2-Bedroom Residence',
-    description: 'A spacious haven designed for modern living. Features a large open-plan living area and a master suite with panoramic mountain views.',
-    sqft: '950 - 1,100',
-    rooms: 4,
-    baths: 2,
-    image: 'https://images.unsplash.com/photo-1502672260266-1c1e52d15461?q=80&w=1600&auto=format&fit=crop',
-  },
-  {
-    id: 'penthouse',
-    title: 'Signature Penthouse',
-    description: 'The pinnacle of luxury. Expansive wrap-around terraces, private elevator access, and bespoke materials sourced from local artisans.',
-    sqft: '2,200+',
-    rooms: 6,
-    baths: 3.5,
-    image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1600&auto=format&fit=crop',
-  }
-];
+const PHOTOS = ['/image1.png', '/image3.png'];
+
+const apartment = {
+  title: '4 BHK Luxury Residence',
+  description:
+    'An expansive living space crafted for grand lifestyles. Featuring a sprawling living area, private balconies with panoramic city views, premium finishes, and intelligent spatial planning throughout.',
+  carpetArea: '1,579',
+  balconyArea: '452',
+  bedrooms: 4,
+  baths: 4,
+  floorPlan: '/image4.png',
+};
 
 export default function ApartmentsSection() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [activeId, setActiveId] = useState(apartmentData[0].id);
+  const [photoIdx, setPhotoIdx] = useState(0);
+  const [showPlan, setShowPlan] = useState(false);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -51,96 +35,153 @@ export default function ApartmentsSection() {
         opacity: 0,
         duration: 1,
         stagger: 0.15,
-        ease: 'power2.out'
+        ease: 'power2.out',
       });
     }, containerRef);
     return () => ctx.revert();
   }, []);
 
-  // Animate content change
-  useEffect(() => {
-    gsap.fromTo('.apt-content', 
-      { opacity: 0, y: 10 }, 
-      { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }
-    );
-  }, [activeId]);
-
-  const activeData = apartmentData.find(apt => apt.id === activeId) || apartmentData[0];
+  const prevPhoto = () =>
+    setPhotoIdx((p) => (p - 1 + PHOTOS.length) % PHOTOS.length);
+  const nextPhoto = () =>
+    setPhotoIdx((p) => (p + 1) % PHOTOS.length);
 
   return (
-    <section className={`section-dark section-padding ${styles.section}`} ref={containerRef}>
+    <section
+      className={`section-dark section-padding ${styles.section}`}
+      ref={containerRef}
+      id="apartments"
+    >
       <div className="container">
-        
+        {/* Header */}
         <div className={styles.header}>
           <div className={`${styles.tagWrapper} apt-fade`}>
             <span className={styles.featureTag}>[ APARTMENTS ]</span>
           </div>
           <h2 className={`${styles.title} apt-fade`}>
-            Find Your Perfect<br/>
-            Space
+            Find Your Perfect<br />Space
           </h2>
         </div>
 
         <div className={styles.contentWrapper}>
-          
-          {/* Left Side: Tabs and Info */}
+          {/* ─── LEFT: Info ─── */}
           <div className={`${styles.leftPanel} apt-fade`}>
-            <div className={styles.tabs}>
-              {apartmentData.map((apt) => (
-                <button
-                  key={apt.id}
-                  className={`${styles.tabBtn} ${activeId === apt.id ? styles.activeTab : ''}`}
-                  onClick={() => setActiveId(apt.id)}
-                >
-                  {apt.title}
-                </button>
-              ))}
+            <h3 className={styles.aptTitle}>{apartment.title}</h3>
+            <p className={styles.aptDescription}>{apartment.description}</p>
+
+            {/* Specs */}
+            <div className={styles.specsGrid}>
+              <div className={styles.specItem}>
+                <span className={styles.specValue}>{apartment.carpetArea}</span>
+                <span className={styles.specLabel}>CARPET SQ FT</span>
+              </div>
+              <div className={styles.specItem}>
+                <span className={styles.specValue}>{apartment.balconyArea}</span>
+                <span className={styles.specLabel}>BALCONY SQ FT</span>
+              </div>
+              <div className={styles.specItem}>
+                <span className={styles.specValue}>{apartment.bedrooms}</span>
+                <span className={styles.specLabel}>BEDROOMS</span>
+              </div>
+              <div className={styles.specItem}>
+                <span className={styles.specValue}>{apartment.baths}</span>
+                <span className={styles.specLabel}>BATHS</span>
+              </div>
             </div>
 
-            <div className="apt-content">
-              <h3 className={styles.aptTitle}>{activeData.title}</h3>
-              <p className={styles.aptDescription}>{activeData.description}</p>
-              
-              <div className={styles.specsGrid}>
-                <div className={styles.specItem}>
-                  <span className={styles.specValue}>{activeData.sqft}</span>
-                  <span className={styles.specLabel}>SQ FT</span>
-                </div>
-                <div className={styles.specItem}>
-                  <span className={styles.specValue}>{activeData.rooms}</span>
-                  <span className={styles.specLabel}>ROOMS</span>
-                </div>
-                <div className={styles.specItem}>
-                  <span className={styles.specValue}>{activeData.baths}</span>
-                  <span className={styles.specLabel}>BATHS</span>
-                </div>
-              </div>
+            {/* Note */}
+            <p className={styles.planNote}>
+              1 Sq. Ft. = 0.0929 Sq. Mt. &nbsp;·&nbsp; All artistic layout plans
+              may undergo revision as decided by the company.
+            </p>
 
-              <div className={styles.actions}>
-                <button className={`pill-btn pill-btn-light ${styles.primaryBtn}`}>
-                  View Floorplan
-                </button>
-                <a href="#offers" className={`pill-btn pill-btn-outline ${styles.secondaryBtn}`} style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none' }}>
-                  Inquire Now
-                </a>
-              </div>
+            {/* Actions */}
+            <div className={styles.actions}>
+              <button
+                className={`${styles.primaryBtn}`}
+                onClick={() => setShowPlan((v) => !v)}
+              >
+                {showPlan ? 'Hide Floorplan' : 'View Floorplan'}
+              </button>
+              <a
+                href="#offers"
+                className={styles.secondaryBtn}
+              >
+                Inquire Now
+              </a>
             </div>
           </div>
 
-          {/* Right Side: Image */}
+          {/* ─── RIGHT: Photo slider + Floor plan ─── */}
           <div className={`${styles.rightPanel} apt-fade`}>
-            <div className={styles.imageContainer}>
-              <img 
-                src={activeData.image} 
-                alt={activeData.title} 
-                className={`${styles.aptImage} apt-content`}
-              />
-              <div className={styles.imageOverlay}></div>
-            </div>
+            {!showPlan ? (
+              <div className={styles.sliderWrapper}>
+                {/* Photo */}
+                <div className={styles.imageContainer}>
+                  {PHOTOS.map((src, i) => (
+                    <img
+                      key={src}
+                      src={src}
+                      alt={`Apartment view ${i + 1}`}
+                      className={`${styles.aptImage} ${i === photoIdx ? styles.activePhoto : styles.hiddenPhoto}`}
+                    />
+                  ))}
+                  <div className={styles.imageOverlay} />
+                </div>
+
+                {/* Slider Controls */}
+                <div className={styles.sliderControls}>
+                  <button
+                    className={styles.sliderBtn}
+                    onClick={prevPhoto}
+                    aria-label="Previous photo"
+                  >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="15 18 9 12 15 6" />
+                    </svg>
+                  </button>
+
+                  {/* Dots */}
+                  <div className={styles.dots}>
+                    {PHOTOS.map((_, i) => (
+                      <button
+                        key={i}
+                        className={`${styles.dot} ${i === photoIdx ? styles.activeDot : ''}`}
+                        onClick={() => setPhotoIdx(i)}
+                        aria-label={`Photo ${i + 1}`}
+                      />
+                    ))}
+                  </div>
+
+                  <button
+                    className={styles.sliderBtn}
+                    onClick={nextPhoto}
+                    aria-label="Next photo"
+                  >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="9 18 15 12 9 6" />
+                    </svg>
+                  </button>
+                </div>
+
+                {/* Counter */}
+                <span className={styles.photoCounter}>
+                  {String(photoIdx + 1).padStart(2, '0')} / {String(PHOTOS.length).padStart(2, '0')}
+                </span>
+              </div>
+            ) : (
+              /* Floor Plan */
+              <div className={styles.floorPlanWrapper}>
+                <img
+                  src={apartment.floorPlan}
+                  alt="4 BHK Floor Plan"
+                  className={styles.floorPlanImg}
+                />
+                <p className={styles.planCaption}>4 BHK – Floor Layout Plan</p>
+              </div>
+            )}
           </div>
-
         </div>
-
       </div>
     </section>
   );

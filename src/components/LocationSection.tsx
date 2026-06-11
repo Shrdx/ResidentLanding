@@ -35,8 +35,7 @@ export default function LocationSection() {
             <span className={styles.featureTag}>[ LOCATION ]</span>
           </div>
           <h2 className={`${styles.title} loc-fade`}>
-            The Heart of<br/>
-            The Dolomites
+            Location
           </h2>
         </div>
 
@@ -44,36 +43,38 @@ export default function LocationSection() {
           
           {/* Left Side: Info */}
           <div className={`${styles.leftPanel} loc-fade`}>
-            <p className={styles.description}>
-              Horizon Grove is perfectly situated to offer the ultimate balance of secluded alpine tranquility and convenient access to world-class amenities. Located in the prestigious San Cassiano region, every destination is just a scenic drive away.
-            </p>
+            <div className={styles.description}>
+              <p style={{marginBottom: '1rem'}}>Situated in the heart of Delhi, this upcoming project in Central Delhi falls right at the center of all the action. This township is surrounded by commercial hubs like Karol Bagh, Gaffar Market &amp; Connaught Place. We also have Shree Jeevan Hospital less than a kilometer away.</p>
+              <p style={{marginBottom: '1rem'}}>Inter and intra city travel will also not be a problem when at The Amaryllis. New Delhi Railway Station is just 3kms away and Delhi Airport is just 14 kms away.</p>
+              <p>Basically, The Amaryllis will ensure that you stay comfortably in the lap of luxury.</p>
+            </div>
 
             <div className={styles.distancesList}>
               <div className={styles.distanceItem}>
-                <span className={styles.distValue}>5 min</span>
-                <span className={styles.distLabel}>Downtown Como</span>
+                <span className={styles.distValue}>1 km</span>
+                <span className={styles.distLabel}>Shree Jeevan Hospital</span>
               </div>
               <div className={styles.distanceItem}>
-                <span className={styles.distValue}>15 min</span>
-                <span className={styles.distLabel}>Premium Ski Resorts</span>
+                <span className={styles.distValue}>3 kms</span>
+                <span className={styles.distLabel}>New Delhi Railway Station</span>
               </div>
               <div className={styles.distanceItem}>
-                <span className={styles.distValue}>45 min</span>
-                <span className={styles.distLabel}>International Airport</span>
+                <span className={styles.distValue}>5 kms</span>
+                <span className={styles.distLabel}>Connaught Place</span>
               </div>
               <div className={styles.distanceItem}>
-                <span className={styles.distValue}>1 hr</span>
-                <span className={styles.distLabel}>Milan City Center</span>
+                <span className={styles.distValue}>14 kms</span>
+                <span className={styles.distLabel}>Delhi Airport</span>
               </div>
             </div>
 
             <div className={styles.addressBox}>
-              <h4 className={styles.addressTitle}>Visit Our Showroom</h4>
+              <h4 className={styles.addressTitle}>Visit Our Site</h4>
               <p className={styles.addressText}>
-                Via Alessandro Volta 25,<br/>
-                Como, Lombardy, Italy
+                1, New Rohtak Rd, Block 67,<br/>
+                Karol Bagh, New Delhi, 110005
               </p>
-              <a href="https://maps.google.com/?q=Via+Alessandro+Volta+25,+Como,+Italy" target="_blank" rel="noopener noreferrer" className={styles.directionLink}>
+              <a href="https://maps.google.com/?q=1,+New+Rohtak+Rd,+Block+67,+Karol+Bagh,+New+Delhi,+Delhi,+110005" target="_blank" rel="noopener noreferrer" className={styles.directionLink}>
                 Get Directions <span className={styles.arrow}>↗</span>
               </a>
             </div>
@@ -83,7 +84,7 @@ export default function LocationSection() {
           <div className={`${styles.rightPanel} loc-fade`}>
             <div className={styles.mapContainer}>
               <iframe 
-                src="https://maps.google.com/maps?q=Via%20Alessandro%20Volta%2025%2C%20Como%2C%20Italy&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                src="https://maps.google.com/maps?q=1,%20New%20Rohtak%20Rd,%20Block%2067,%20Karol%20Bagh,%20New%20Delhi,%20Delhi,%20110005&t=&z=14&ie=UTF8&iwloc=&output=embed"
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }} 

@@ -1,0 +1,41 @@
+.widget {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  background-color: #25d366;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+  color: white;
+}
+
+.widget:hover {
+  transform: scale(1.1) translateY(-5px);
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+}
+
+.icon {
+  width: 35px;
+  height: 35px;
+}
+
+@media (max-width: 768px) {
+  .widget {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 50px;
+    height: 50px;
+  }
+
+  .icon {
+    width: 28px;
+    height: 28px;
+  }
+}
