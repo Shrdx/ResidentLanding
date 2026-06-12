@@ -43,6 +43,13 @@
   opacity: 1;
 }
 
+.sabLogoImg {
+  height: 52px;
+  width: auto;
+  margin-left: 1.5rem;
+  object-fit: contain;
+}
+
 .nav {
   display: flex;
   gap: 2rem;

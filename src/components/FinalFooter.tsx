@@ -77,8 +77,8 @@ export default function FinalFooter() {
 
           <div className={`${styles.contactColumn} final-fade`}>
             <h3 className={styles.columnHeader}>Our Contacts</h3>
-            <p className={styles.textBody}>info@theamaryllis.in</p>
-            <p className={styles.textBody}>+91XXXXXXXXXX</p>
+            <p className={styles.textBody}>info@sabproperties.in</p>
+            <p className={styles.textBody}>+91 9313638558</p>
             <div className={styles.socialIcons}>
               <span className={styles.icon}>f</span>
               <span className={styles.icon}>ig</span>

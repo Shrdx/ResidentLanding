@@ -164,7 +164,8 @@
   right: 4rem;
   display: flex;
   gap: 1rem;
-  z-index: 10;
+  z-index: 99;
+  pointer-events: auto;
 }
 
 .controlBtn {

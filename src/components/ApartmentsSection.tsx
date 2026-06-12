@@ -6,7 +6,7 @@ import styles from './ApartmentsSection.module.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const PHOTOS = ['/image1.png', '/image3.png'];
+const PHOTOS = ['/apartment.png', '/double height.jpg', '/apartment2.png'];
 
 const apartment = {
   title: '4 BHK Luxury Residence',
@@ -40,6 +40,14 @@ export default function ApartmentsSection() {
     }, containerRef);
     return () => ctx.revert();
   }, []);
+
+  useEffect(() => {
+    if (showPlan) return;
+    const interval = setInterval(() => {
+      setPhotoIdx((p) => (p + 1) % PHOTOS.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [showPlan]);
 
   const prevPhoto = () =>
     setPhotoIdx((p) => (p - 1 + PHOTOS.length) % PHOTOS.length);
@@ -86,6 +94,14 @@ export default function ApartmentsSection() {
               <div className={styles.specItem}>
                 <span className={styles.specValue}>{apartment.baths}</span>
                 <span className={styles.specLabel}>BATHS</span>
+              </div>
+              <div className={styles.specItem}>
+                <span className={styles.specValue}>25th</span>
+                <span className={styles.specLabel}>FLOOR</span>
+              </div>
+              <div className={styles.specItem}>
+                <span className={styles.specValue}>Tower D</span>
+                <span className={styles.specLabel}>TOWER</span>
               </div>
             </div>
 
@@ -141,17 +157,7 @@ export default function ApartmentsSection() {
                     </svg>
                   </button>
 
-                  {/* Dots */}
-                  <div className={styles.dots}>
-                    {PHOTOS.map((_, i) => (
-                      <button
-                        key={i}
-                        className={`${styles.dot} ${i === photoIdx ? styles.activeDot : ''}`}
-                        onClick={() => setPhotoIdx(i)}
-                        aria-label={`Photo ${i + 1}`}
-                      />
-                    ))}
-                  </div>
+
 
                   <button
                     className={styles.sliderBtn}

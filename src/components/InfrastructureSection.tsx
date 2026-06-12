@@ -36,8 +36,8 @@ const infrastructureData = [
     title: 'LUXURY LEISURE\nEVERY DAY',
     distance: 'Resort-Style',
     desc: 'From social lounges and entertainment areas to outdoor relaxation spaces, enjoy a resort-inspired lifestyle without leaving the community.',
-    largeImg: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?q=80&w=1600&auto=format&fit=crop',
-    smallImg: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=600&auto=format&fit=crop'
+    largeImg: '/pool.jpg',
+    smallImg: '/pool2.jpg'
   }
 ];
 

@@ -27,6 +27,7 @@ export default function Navbar() {
             Get A Consultation <span className={styles.arrow}>↗</span>
           </a>
           <button className={styles.heartBtn}>♡</button>
+          <img src="/newlogo.png" alt="SAB Properties" className={styles.sabLogoImg} />
         </nav>
       </div>
     </header>

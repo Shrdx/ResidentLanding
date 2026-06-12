@@ -54,6 +54,12 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   margin-bottom: 4rem;
   overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.tabNav::-webkit-scrollbar {
+  display: none;
 }
 
 .tabItem {

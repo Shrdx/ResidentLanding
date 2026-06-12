@@ -11,25 +11,25 @@ const FEATURES = [
     id: '01',
     title: 'DOUBLE HEIGHT ENTRANCE',
     description: `There is nothing more dramatic than walking into a house with soaring ceilings, huge windows, and breathtaking vistas. At The Amaryllis, enter through a double-height entrance that opens up into a room that's flooded with wonderful natural light thanks to the huge windows that are much higher than the standard nine-foot.`,
-    image: '/images/corridor.webp',
+    image: '/double height.jpg',
   },
   {
     id: '02',
     title: 'HIGH SPEED ELEVATORS',
     description: `The Amaryllis transforms how you travel in this opulent residential development, thanks to its cutting-edge, high-speed elevators. It uses a web-based monitoring system that ensures fewer stops & less crowding, making it peaceful to get to your apartment.`,
-    image: '/images/mid-building.webp',
+    image: '/elevator.png',
   },
   {
     id: '03',
     title: 'AIR CONDITIONING SYSTEM',
     description: `The Amaryllis' HVAC system maintains a constant temperature throughout your apartment. This sophisticated air conditioning system serves dual function of dispersing heat and cool air during the winter and summer, respectively. No matter the season, always stay cozy at The Amaryllis.`,
-    image: '/images/store-small.webp',
+    image: '/ac.png',
   },
   {
     id: '04',
     title: 'EARTHQUAKE RESISTANT',
     description: `In response to increased seismic awareness across the globe, The Amaryllis has made significant efforts to reduce the loss that may happen during an earthquake. This property guarantees style, comfort, and utmost safety beginning with the connection of structural elements, reinforced masonry, building spacing, and doing everything as per government regulations.`,
-    image: '/images/carousel-building.webp',
+    image: '/earthquake.png',
   },
 ];
 
