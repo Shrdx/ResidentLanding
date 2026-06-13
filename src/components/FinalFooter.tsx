@@ -98,8 +98,8 @@ export default function FinalFooter() {
         </div>
 
         <div className={`${styles.copyrightRow} final-fade`}>
-          <p>Copyright © www.amaryllisdelhi.com 2014 - 2026 | All Rights Reserved | Emaar Serenity Hills | DLF One Midtown | Disclaimer</p>
-          <p>This is not the official website. And it belongs to Authorized Channel Partner of Unity Group.</p>
+          <p>© 2010-2026 SAB Properties. All Rights Reserved.</p>
+          <p>Disclaimer: This website is an independent marketing platform operated by SAB Properties and is not the official website of the developer. The information provided is for informational purposes only and may be subject to change without notice.</p>
         </div>
 
       </div>
