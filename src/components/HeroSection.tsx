@@ -77,7 +77,7 @@ export default function HeroSection() {
         <div className={styles.contentGrid}>
           <div className={styles.leftColumn}>
             <div className="stagger-text">
-              <h2 className={styles.subtitle}>welcome to<br />the amaryllis</h2>
+              <h2 className={styles.subtitle}>Welcome to<br />The Amaryllis</h2>
               <p className={styles.description}>
                 A unique space where modern design meets unparalleled convenience, offering a lifestyle beyond expectations.
               </p>

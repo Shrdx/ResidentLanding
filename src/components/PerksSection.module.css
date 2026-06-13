@@ -183,6 +183,67 @@
   pointer-events: none;
 }
 
+/* ─── Slider Controls ─── */
+.sliderControls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.sliderBtn {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  border: 1px solid #a01830;
+  background: transparent;
+  color: #a01830;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.sliderBtn:hover {
+  background: #a01830;
+  color: #fff;
+}
+
+.sliderCount {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #a01830;
+  letter-spacing: 0.1em;
+  min-width: 4rem;
+  text-align: center;
+}
+
+/* ─── Dot Row ─── */
+.dotRow {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid #a01830;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.dotActive {
+  background: #a01830;
+  transform: scale(1.3);
+}
+
 /* ─── Responsive ─── */
 @media (max-width: 1024px) {
   .featurePanel {

@@ -15,10 +15,10 @@
 }
 
 .bigTitle {
-  font-size: clamp(3rem, 8.5vw, 10rem);
+  font-size: clamp(3.5rem, 14vw, 16rem);
   font-weight: 300;
-  letter-spacing: -0.04em;
-  line-height: 0.8;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
   text-transform: uppercase;
   width: 100%;
   text-align: justify;
@@ -40,54 +40,66 @@
   margin-bottom: 6rem;
 }
 
-.newsletterColumn {
+.contactFormColumn {
   display: flex;
   flex-direction: column;
 }
 
-.newsletterTitle {
-  font-size: 2rem;
-  font-weight: 300;
-  line-height: 1.2;
-  margin-bottom: 2rem;
-}
-
-.newsletterSubtitle {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  margin-bottom: 1rem;
-}
-
-.newsletterForm {
+.contactForm {
   display: flex;
-  align-items: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  padding-bottom: 0.5rem;
-  width: 80%;
+  flex-direction: column;
+  gap: 1rem;
+  width: 90%;
 }
 
-.emailInput {
-  flex: 1;
+.formInput {
   background: transparent;
   border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   color: var(--text-dark);
   font-family: var(--font-main);
   font-size: 0.9rem;
+  padding: 0.5rem 0;
   outline: none;
+  transition: border-color 0.3s ease;
 }
 
-.emailInput::placeholder {
+.formInput:focus {
+  border-color: var(--text-dark);
+}
+
+.formInput::placeholder {
   color: var(--text-muted);
+}
+
+.submitBtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-dark);
+  padding: 0.8rem 1.2rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+.submitBtn:hover {
+  background: var(--text-dark);
+  color: var(--bg-dark);
+}
+
+.submitBtn:hover .submitArrow {
+  color: var(--bg-dark);
 }
 
 .submitArrow {
   color: var(--text-muted);
   font-size: 1.2rem;
   transition: color 0.3s ease;
-}
-
-.submitArrow:hover {
-  color: var(--text-dark);
 }
 
 .columnHeader {
@@ -186,7 +198,7 @@
     grid-template-columns: 1fr;
     gap: 3rem;
   }
-  .newsletterForm {
+  .contactForm {
     width: 100%;
   }
 }

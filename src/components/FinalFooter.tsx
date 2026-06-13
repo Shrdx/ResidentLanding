@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, FormEvent } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './FinalFooter.module.css';
@@ -26,6 +26,19 @@ export default function FinalFooter() {
     return () => ctx.revert();
   }, []);
 
+  const handleWhatsAppSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const phone = formData.get('phone');
+    
+    const message = `Hi, I'm interested in The Amaryllis.\nName: ${name}\nEmail: ${email}\nPhone: ${phone}`;
+    const whatsappUrl = `https://wa.me/919313638558?text=${encodeURIComponent(message)}`;
+    
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
     <footer className={styles.footer} ref={containerRef}>
       <div className="container">
@@ -38,16 +51,16 @@ export default function FinalFooter() {
 
         <div className={styles.gridContainer}>
 
-          <div className={`${styles.newsletterColumn} final-fade`}>
-            <h2 className={styles.newsletterTitle}>
-              Let's Keep in Touch – Be<br />
-              the First to Know What's<br />
-              Coming
-            </h2>
-            <p className={styles.newsletterSubtitle}>Sign up for our newsletter ( No spam)</p>
-            <form className={styles.newsletterForm}>
-              <input type="email" placeholder="Email" className={styles.emailInput} />
-              <button type="submit" className={styles.submitArrow}>↗</button>
+          <div className={`${styles.contactFormColumn} final-fade`}>
+            <h3 className={styles.columnHeader}>Get in Touch</h3>
+            <p className={styles.newsletterSubtitle}>Leave your details and we'll contact you.</p>
+            <form className={styles.contactForm} onSubmit={handleWhatsAppSubmit}>
+              <input type="text" name="name" placeholder="Your Name" required className={styles.formInput} />
+              <input type="email" name="email" placeholder="Your Email" required className={styles.formInput} />
+              <input type="tel" name="phone" placeholder="Phone Number" required className={styles.formInput} />
+              <button type="submit" className={styles.submitBtn}>
+                Send via WhatsApp <span className={styles.submitArrow}>↗</span>
+              </button>
             </form>
           </div>
 
@@ -79,11 +92,7 @@ export default function FinalFooter() {
             <h3 className={styles.columnHeader}>Our Contacts</h3>
             <p className={styles.textBody}>info@sabproperties.in</p>
             <p className={styles.textBody}>+91 9313638558</p>
-            <div className={styles.socialIcons}>
-              <span className={styles.icon}>f</span>
-              <span className={styles.icon}>ig</span>
-              <span className={styles.icon}>yt</span>
-            </div>
+
           </div>
 
         </div>
