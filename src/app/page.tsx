@@ -1,7 +1,6 @@
 import HeroSection from '@/components/HeroSection';
-import ApartmentsSection from '@/components/ApartmentsSection';
+import GallerySection from '@/components/GallerySection';
 import PerksSection from '@/components/PerksSection';
-import InfrastructureSection from '@/components/InfrastructureSection';
 import LocationSection from '@/components/LocationSection';
 import FooterSection from '@/components/FooterSection';
 import FinalFooter from '@/components/FinalFooter';
@@ -15,14 +14,13 @@ export default function Home() {
       <div>
         <HeroSection />
       </div>
-      <div id="apartments">
-        <ApartmentsSection />
+
+      <div id="gallery">
+        <GallerySection />
       </div>
+
       <div id="features">
         <PerksSection />
-      </div>
-      <div id="infrastructure">
-        <InfrastructureSection />
       </div>
       <div id="location">
         <LocationSection />

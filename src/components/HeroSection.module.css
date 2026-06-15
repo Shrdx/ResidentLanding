@@ -49,62 +49,13 @@
   z-index: 2;
 }
 
-.titleWrapper {
-  margin-top: 5rem;
-  width: 100%;
-  overflow: hidden;
-}
-
-.title {
-  text-align: left;
-  margin-left: -0.5%;
-  font-family: var(--font-display, 'Syne', sans-serif);
-  font-size: clamp(2rem, 7vw, 7.5rem);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 0.85;
-  text-transform: uppercase;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.titleMeta {
-  display: flex;
-  gap: 1.2rem;
-  align-items: center;
-  font-size: 0.7rem;
-  font-weight: 400;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 0.5rem;
-  padding-left: 0.3rem;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
-}
-
-.metaDot {
-  opacity: 0.4;
-}
-
-.titleLine {
-  display: block;
-}
-
-.charLight {
-  font-weight: 400;
-  opacity: 0.85;
-}
-
-.charBold {
-  font-weight: 800;
-}
-
 .contentGrid {
   display: grid;
-  grid-template-columns: 1fr; /* Changed to 1fr because right column is removed */
-  gap: 2rem;
-  margin-top: 4rem;
+  grid-template-columns: 1fr 400px;
+  gap: 4rem;
+  margin-top: 6rem;
   flex: 1;
+  align-items: center;
 }
 
 .leftColumn {
@@ -113,21 +64,79 @@
   justify-content: center;
 }
 
-.subtitle {
-  font-size: 3.5rem;
-  font-weight: 300;
-  line-height: 1;
+.title {
+  font-size: clamp(2rem, 3.5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
   margin-bottom: 1.5rem;
-  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6), 0 1px 4px rgba(0, 0, 0, 0.9);
+  color: #fff;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
 }
 
-.description {
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.92);
-  max-width: 300px;
-  line-height: 1.6;
-  margin-bottom: 2rem;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8), 0 1px 3px rgba(0, 0, 0, 1);
+.titleLine {
+  display: block;
+}
+
+.titleLineHighlight {
+  display: block;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+}
+
+.locationSubheading {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 2.5rem;
+  line-height: 1.5;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.02em;
+}
+
+.subtext {
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.metaDot {
+  color: #a01830;
+  font-weight: bold;
+}
+
+.trustBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.trustItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
+}
+
+.trustItem span {
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .btnGroup {
@@ -136,26 +145,16 @@
   flex-wrap: wrap;
 }
 
-.viewBtn {
-  background-color: transparent;
+.primaryBtn {
+  background-color: #a01830;
   color: #fff;
   padding: 1rem 2rem;
   border-radius: 2rem;
   font-size: 1rem;
   font-weight: 500;
-  width: fit-content;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid #a01830;
   transition: all 0.3s ease;
   cursor: pointer;
-}
-
-.viewBtn:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.primaryBtn {
-  background-color: #a01830;
-  border-color: #a01830;
 }
 
 .primaryBtn:hover {
@@ -163,12 +162,170 @@
   border-color: #8a1328;
 }
 
-/* Removed rightColumn css since the section was removed */
+.secondaryBtn {
+  background-color: transparent;
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.secondaryBtn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #fff;
+}
+
+/* Right Column Form */
+.rightColumn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.leadFormCard {
+  background: rgba(45, 45, 45, 0.95);
+  border-radius: 8px;
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.formHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.phoneWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.phoneNumber {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.formDivider {
+  width: 100%;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  margin: 0.5rem 0 1.5rem 0;
+}
+
+.formTitle {
+  font-family: inherit;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.formSubtitle {
+  display: none;
+}
+
+.leadForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.inputGroup {
+  width: 100%;
+}
+
+.formInput, .formSelect, .formInputPhone {
+  width: 100%;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 4px;
+  padding: 0.9rem 1rem;
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.formSelect {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23FFFFFF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem top 50%;
+  background-size: 0.65rem auto;
+}
+
+.formSelect option {
+  color: #000;
+}
+
+.phoneInputGroup {
+  display: flex;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.phonePrefixHolder {
+  width: 50px;
+  border-right: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.formInputPhone {
+  border: none;
+  border-radius: 0 4px 4px 0;
+  flex: 1;
+}
+
+.formInputPhone:focus {
+  outline: none;
+}
+
+.formInput::placeholder, .formInputPhone::placeholder {
+  color: #fff;
+  opacity: 0.8;
+}
+
+.formInput:focus, .formSelect:focus, .phoneInputGroup:focus-within {
+  outline: none;
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.submitBtn {
+  background-color: #a01830;
+  color: #fff;
+  padding: 1.1rem;
+  border-radius: 2rem;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
+.submitBtn:hover {
+  background-color: #8a1328;
+}
 
 .carouselControls {
   position: absolute;
   bottom: 4rem;
-  right: 4rem;
+  left: 4rem;
   display: flex;
   gap: 1rem;
   z-index: 99;
@@ -179,56 +336,57 @@
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  background-color: #a01830;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.3s;
 }
 
 .controlBtn:hover {
-  background-color: #8a1328;
+  background-color: #a01830;
+  border-color: #a01830;
+  color: #fff;
 }
 
 @media (max-width: 1024px) {
   .heroSection {
     padding: 2rem;
   }
+  .contentGrid {
+    grid-template-columns: 1fr 350px;
+    gap: 2rem;
+  }
   .carouselControls {
     bottom: 2rem;
-    right: 2rem;
+    left: 2rem;
   }
 }
 
 @media (max-width: 768px) {
   .heroSection {
-    padding: 5rem 1rem 2rem;
+    padding: 6rem 1.5rem 2rem;
   }
-
-  .title {
-    font-size: 9vw;
-    letter-spacing: -0.01em;
-  }
-
-  .subtitle {
-    font-size: clamp(1.1rem, 5.5vw, 1.8rem);
-  }
-
-  .titleWrapper {
-    margin-top: 3rem;
-  }
-
   .contentGrid {
+    grid-template-columns: 1fr;
     margin-top: 2rem;
+    gap: 3rem;
   }
-}
-
-@media (max-width: 480px) {
-  .title {
-    font-size: 8.5vw;
-    letter-spacing: 0;
+  .rightColumn {
+    justify-content: flex-start;
+  }
+  .leadFormCard {
+    max-width: 100%;
+    padding: 2rem 1.5rem;
+  }
+  .carouselControls {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    margin-top: 2rem;
   }
 }

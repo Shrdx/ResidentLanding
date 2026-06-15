@@ -43,10 +43,6 @@ export default function FinalFooter() {
     <footer className={styles.footer} ref={containerRef}>
       <div className="container">
 
-        <div className={`${styles.bigTitleWrapper} final-fade`}>
-          <h1 className={styles.bigTitle}>THE AMARYLLIS</h1>
-        </div>
-
         <div className={styles.divider}></div>
 
         <div className={styles.gridContainer}>
@@ -64,16 +60,7 @@ export default function FinalFooter() {
             </form>
           </div>
 
-          <div className={`${styles.menuColumn} final-fade`}>
-            <h3 className={styles.columnHeader}>Menu</h3>
-            <div className={styles.menuGrid}>
-              <ul className={styles.menuList}>
-                <li><a href="#apartments">Apartment</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#infrastructure">Infrastructure</a></li>
-              </ul>
-            </div>
-          </div>
+
 
           <div className={`${styles.addressColumn} final-fade`}>
             <h3 className={styles.columnHeader}>Visit Us</h3>

@@ -20,13 +20,9 @@ export default function Navbar() {
           <img src="/logo-golden.png" alt="The Amaryllis Logo" className={styles.logoImg} />
         </a>
         <nav className={styles.nav}>
-          <a href="#apartments">APARTMENT</a>
-          <a href="#features">FEATURES</a>
-          <a href="#infrastructure">INFRASTRUCTURE</a>
           <a href="#offers" className={styles.consultationBtn}>
             Get A Consultation <span className={styles.arrow}>↗</span>
           </a>
-          <img src="/newlogo.png" alt="SAB Properties" className={styles.sabLogoImg} />
         </nav>
       </div>
     </header>

@@ -40,13 +40,7 @@ export default function HeroSection() {
     return () => ctx.revert();
   }, []);
 
-  const nextSlide = () => {
-    setCurrentBg((prev) => (prev + 1) % BACKGROUND_IMAGES.length);
-  };
 
-  const prevSlide = () => {
-    setCurrentBg((prev) => (prev - 1 + BACKGROUND_IMAGES.length) % BACKGROUND_IMAGES.length);
-  };
 
   return (
     <section className={styles.heroSection} ref={containerRef}>
@@ -60,50 +54,87 @@ export default function HeroSection() {
       <div className={styles.bgOverlay} />
 
       <div className={styles.mainContent}>
-        <div className={styles.titleWrapper}>
-          <div className={`${styles.titleMeta} stagger-text`}>
-            <span>RESIDENCE</span>
-            <span className={styles.metaDot}>·</span>
-            <span>CENTRAL DELHI</span>
-          </div>
-          <h1 className={`${styles.title} stagger-text`}>
-            <span className={styles.titleLine}>
-              <span className={styles.charBold}>THE</span>
-            </span>
-            <span className={styles.titleLine}>AMARYLLIS</span>
-          </h1>
-        </div>
-
         <div className={styles.contentGrid}>
           <div className={styles.leftColumn}>
             <div className="stagger-text">
-              <h2 className={styles.subtitle}>Welcome to<br />The Amaryllis</h2>
-              <p className={styles.description}>
-                A unique space where modern design meets unparalleled convenience, offering a lifestyle beyond expectations.
+              <h1 className={styles.title}>
+                <span className={styles.titleLine}>The View Everyone Admires</span>
+                <span className={styles.titleLineHighlight}>The Home Only A Few Can Own</span>
+              </h1>
+
+              <p className={styles.locationSubheading}>
+                Exclusive 4 BHK Residence at The Amaryllis<br />
+                <span className={styles.subtext}>Tower D <span className={styles.metaDot}>·</span> 25th Floor <span className={styles.metaDot}>·</span> Club Facing Views</span>
               </p>
+
+              <div className={styles.trustBar}>
+                <div className={styles.trustItem}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a01830" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Premium Tower D Unit</span>
+                </div>
+                <div className={styles.trustItem}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a01830" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Central Delhi</span>
+                </div>
+                <div className={styles.trustItem}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a01830" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Private Site Visits</span>
+                </div>
+              </div>
+
               <div className={styles.btnGroup}>
-                <button className={`${styles.viewBtn} ${styles.primaryBtn}`}>
-                  Book a site visit
+                <button className={`${styles.primaryBtn}`}>
+                  Schedule Site Visit
+                </button>
+                <button className={`${styles.secondaryBtn}`}>
+                  Request Pricing
                 </button>
               </div>
             </div>
           </div>
-          {/* Right column "SPACE THAT INSPIRES" removed as requested */}
+
+          <div className={styles.rightColumn}>
+            <div className={`${styles.leadFormCard} fade-in`}>
+              <div className={styles.formHeader}>
+                <div className={styles.phoneWrapper}>
+                  <svg className={styles.phoneIcon} width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z" />
+                  </svg>
+                  <span className={styles.phoneNumber}>+91 93136 38558</span>
+                </div>
+                <hr className={styles.formDivider} />
+                <h3 className={styles.formTitle}>Get in touch with us!</h3>
+              </div>
+              <form className={styles.leadForm}>
+                <div className={styles.inputGroup}>
+                  <input type="text" placeholder="Name" required className={styles.formInput} />
+                </div>
+                <div className={styles.inputGroup}>
+                  <input type="email" placeholder="Email" required className={styles.formInput} />
+                </div>
+                <div className={styles.inputGroup}>
+                  <select className={styles.formSelect} required defaultValue="">
+                    <option value="" disabled>Select Country</option>
+                    <option value="IN">India (+91)</option>
+                    <option value="US">USA (+1)</option>
+                    <option value="UK">UK (+44)</option>
+                    <option value="AE">UAE (+971)</option>
+                  </select>
+                </div>
+                <div className={styles.phoneInputGroup}>
+                  <div className={styles.phonePrefixHolder}></div>
+                  <input type="tel" placeholder="Phone No." required className={styles.formInputPhone} />
+                </div>
+                <button type="submit" className={styles.submitBtn}>
+                  Assured Callback in 5 Mins
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className={styles.carouselControls}>
-        <button type="button" className={styles.controlBtn} onClick={prevSlide} aria-label="Previous image">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="15 18 9 12 15 6"></polyline>
-          </svg>
-        </button>
-        <button type="button" className={styles.controlBtn} onClick={nextSlide} aria-label="Next image">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </button>
-      </div>
+    
     </section>
   );
 }
