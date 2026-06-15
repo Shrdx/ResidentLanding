@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
+import emailjs from '@emailjs/browser';
 import styles from './HeroSection.module.css';
 
 const BACKGROUND_IMAGES = [
@@ -11,7 +12,10 @@ const BACKGROUND_IMAGES = [
 
 export default function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const form = useRef<HTMLFormElement>(null);
   const [currentBg, setCurrentBg] = useState(0);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -39,6 +43,32 @@ export default function HeroSection() {
     }, containerRef);
     return () => ctx.revert();
   }, []);
+
+  const sendEmail = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!form.current) return;
+
+    setIsSubmitting(true);
+    setSubmitMessage('');
+
+    // Using actual EmailJS credentials
+    emailjs
+      .sendForm('service_5txbc6n', 'template_q98ghre', form.current, {
+        publicKey: 'i6zEVyqlChZYgPp3M',
+      })
+      .then(
+        () => {
+          setSubmitMessage('Thank you! We will get back to you soon.');
+          setIsSubmitting(false);
+          form.current?.reset();
+        },
+        (error) => {
+          console.error('FAILED...', error.text);
+          setSubmitMessage('Something went wrong. Please try again.');
+          setIsSubmitting(false);
+        }
+      );
+  };
 
 
 
@@ -105,15 +135,15 @@ export default function HeroSection() {
                 <hr className={styles.formDivider} />
                 <h3 className={styles.formTitle}>Get in touch with us!</h3>
               </div>
-              <form className={styles.leadForm}>
+              <form ref={form} onSubmit={sendEmail} className={styles.leadForm}>
                 <div className={styles.inputGroup}>
-                  <input type="text" placeholder="Name" required className={styles.formInput} />
+                  <input type="text" name="user_name" placeholder="Name" required className={styles.formInput} />
                 </div>
                 <div className={styles.inputGroup}>
-                  <input type="email" placeholder="Email" required className={styles.formInput} />
+                  <input type="email" name="user_email" placeholder="Email" required className={styles.formInput} />
                 </div>
                 <div className={styles.inputGroup}>
-                  <select className={styles.formSelect} required defaultValue="">
+                  <select name="country" className={styles.formSelect} required defaultValue="">
                     <option value="" disabled>Select Country</option>
                     <option value="IN">India (+91)</option>
                     <option value="US">USA (+1)</option>
@@ -123,11 +153,16 @@ export default function HeroSection() {
                 </div>
                 <div className={styles.phoneInputGroup}>
                   <div className={styles.phonePrefixHolder}></div>
-                  <input type="tel" placeholder="Phone No." required className={styles.formInputPhone} />
+                  <input type="tel" name="user_phone" placeholder="Phone No." required className={styles.formInputPhone} />
                 </div>
-                <button type="submit" className={styles.submitBtn}>
-                  Assured Callback in 5 Mins
+                <button type="submit" className={styles.submitBtn} disabled={isSubmitting}>
+                  {isSubmitting ? 'Sending...' : 'Assured Callback in 5 Mins'}
                 </button>
+                {submitMessage && (
+                  <p style={{ color: '#fff', fontSize: '0.85rem', marginTop: '0.5rem', textAlign: 'center' }}>
+                    {submitMessage}
+                  </p>
+                )}
               </form>
             </div>
           </div>

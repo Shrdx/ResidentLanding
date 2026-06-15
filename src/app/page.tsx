@@ -1,8 +1,8 @@
 import HeroSection from '@/components/HeroSection';
 import GallerySection from '@/components/GallerySection';
+import FloorPlanSection from '@/components/FloorPlanSection';
 import PerksSection from '@/components/PerksSection';
 import LocationSection from '@/components/LocationSection';
-import FooterSection from '@/components/FooterSection';
 import FinalFooter from '@/components/FinalFooter';
 import Navbar from '@/components/Navbar';
 import ScrollToTop from '@/components/ScrollToTop';
@@ -19,14 +19,15 @@ export default function Home() {
         <GallerySection />
       </div>
 
+      <div id="floorplan">
+        <FloorPlanSection />
+      </div>
+
       <div id="features">
         <PerksSection />
       </div>
       <div id="location">
         <LocationSection />
-      </div>
-      <div id="offers">
-        <FooterSection />
       </div>
       <FinalFooter />
       <ScrollToTop />
