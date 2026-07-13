@@ -44,7 +44,7 @@ export default function FloorPlanSection() {
           <div className={`${styles.imageWrapper} fp-fade`}>
             <span className={styles.imageTag}>Tower D · 25th Floor</span>
             <img
-              src="/floorplan_upscaled.png"
+              src="/images/4BHK.jpeg"
               alt="4 BHK Floor Plan - The Amaryllis Tower D"
               className={styles.floorImage}
             />
@@ -62,15 +62,9 @@ export default function FloorPlanSection() {
             {/* Area stats */}
             <div className={`${styles.areaStats} fp-fade`}>
               <div className={styles.areaStat}>
-                <p className={styles.areaLabel}>Super Area</p>
+                <p className={styles.areaLabel}>Saleable Area</p>
                 <p className={styles.areaValue}>
                   3740 <span className={styles.areaUnit}>Sq. Ft.</span>
-                </p>
-              </div>
-              <div className={styles.areaStat}>
-                <p className={styles.areaLabel}>Carpet Area</p>
-                <p className={styles.areaValue}>
-                  2239 <span className={styles.areaUnit}>Sq. Ft.</span>
                 </p>
               </div>
             </div>
@@ -81,12 +75,12 @@ export default function FloorPlanSection() {
                 Interested in this unit? Request the detailed floor plan and pricing directly to your inbox.
               </p>
               <a
-                href="https://wa.me/919313638558"
+                href="/Amaryllis_Phase_2_3_Brochure.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.ctaBtn}
               >
-                Get Floor Plan Details
+                Download Brochure
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>

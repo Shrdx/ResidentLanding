@@ -38,10 +38,10 @@ export default function FooterSection() {
     if (formRef.current) {
       emailjs
         .sendForm(
-          'service_5txbc6n',
-          'template_q98ghre',
+          'service_5nax27f',
+          'template_0nez08b',
           formRef.current,
-          'i6zEVyqlChZYgPp3M'
+          'R8DQzj6IecXyxwngy'
         )
         .then(
           () => {

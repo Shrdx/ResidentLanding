@@ -32,10 +32,10 @@ export default function FinalFooter() {
     const name = formData.get('name');
     const email = formData.get('email');
     const phone = formData.get('phone');
-    
+
     const message = `Hi, I'm interested in The Amaryllis.\nName: ${name}\nEmail: ${email}\nPhone: ${phone}`;
     const whatsappUrl = `https://wa.me/919313638558?text=${encodeURIComponent(message)}`;
-    
+
     window.open(whatsappUrl, '_blank');
   };
 
@@ -64,10 +64,10 @@ export default function FinalFooter() {
 
           <div className={`${styles.addressColumn} final-fade`}>
             <h3 className={styles.columnHeader}>Visit Us</h3>
-            <a 
-              href="https://share.google/4o5I56B9sGhvVfrqc" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href="https://share.google/4o5I56B9sGhvVfrqc"
+              target="_blank"
+              rel="noopener noreferrer"
               className={`${styles.textBody} ${styles.addressLink}`}
             >
               1, New Rohtak Rd, Block 67,<br />
@@ -77,7 +77,6 @@ export default function FinalFooter() {
 
           <div className={`${styles.contactColumn} final-fade`}>
             <h3 className={styles.columnHeader}>Our Contacts</h3>
-            <p className={styles.textBody}>info@sabproperties.in</p>
             <p className={styles.textBody}>+91 9313638558</p>
 
           </div>
