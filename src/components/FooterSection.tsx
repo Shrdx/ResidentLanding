@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import emailjs from '@emailjs/browser';
+import { gtag_report_conversion } from '../utils/gtag';
 import styles from './FooterSection.module.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -48,6 +49,7 @@ export default function FooterSection() {
             setStatusMessage('Thank you! Your details have been sent successfully.');
             formRef.current?.reset();
             setIsSubmitting(false);
+            gtag_report_conversion();
           },
           (error) => {
             console.error('EmailJS Error:', error);

@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import emailjs from '@emailjs/browser';
+import { gtag_report_conversion } from '../utils/gtag';
 import styles from './HeroSection.module.css';
 
 const BACKGROUND_IMAGES = [
@@ -61,6 +62,7 @@ export default function HeroSection() {
           setSubmitMessage('Thank you! We will get back to you soon.');
           setIsSubmitting(false);
           form.current?.reset();
+          gtag_report_conversion();
         },
         (error) => {
           console.error('FAILED...', error.text);

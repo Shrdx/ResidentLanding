@@ -2,6 +2,7 @@
 import { useEffect, useRef, FormEvent } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gtag_report_conversion } from '../utils/gtag';
 import styles from './FinalFooter.module.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -36,6 +37,7 @@ export default function FinalFooter() {
     const message = `Hi, I'm interested in The Amaryllis.\nName: ${name}\nEmail: ${email}\nPhone: ${phone}`;
     const whatsappUrl = `https://wa.me/919313638558?text=${encodeURIComponent(message)}`;
 
+    gtag_report_conversion();
     window.open(whatsappUrl, '_blank');
   };
 

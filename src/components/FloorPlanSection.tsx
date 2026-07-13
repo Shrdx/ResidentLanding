@@ -2,6 +2,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gtag_report_conversion } from '../utils/gtag';
 import styles from './FloorPlanSection.module.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -79,6 +80,7 @@ export default function FloorPlanSection() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.ctaBtn}
+                onClick={() => gtag_report_conversion()}
               >
                 Download Brochure
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
