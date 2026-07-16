@@ -54,8 +54,8 @@ export default function HeroSection() {
 
     // Using actual EmailJS credentials
     emailjs
-      .sendForm('service_5nax27f', 'template_0nez08b', form.current, {
-        publicKey: 'R8DQzj6IecXyxwngy',
+      .sendForm('service_uk5odj7', 'template_e1zmkry', form.current, {
+        publicKey: 'NcIBeqBE2jv_yOxYS',
       })
       .then(
         () => {
